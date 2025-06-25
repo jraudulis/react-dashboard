@@ -29,16 +29,21 @@ const ToDoWidget = () => {
     );
    }
 
+   const deleteItem = (i)=> {
+    setItems(prevItems => prevItems.filter((item, index)=> index !== i));
+   }
+
   return (
     <>
       <div className="todo-widget">
         <h2>Daily Tasks</h2>
         <input onKeyDown={handleKeyPress} onChange={onInputChange} value={input} className="input" type="text" placeholder="Enter item" />
-        <button  onClick={addItems} aria-label="add task" className="btn">Enter</button>
+        <button disabled={!input.trim()} onClick={addItems} aria-label="add task" className="btn">Enter</button>
         <ul className="list">{items.map((task, i)=>(
-            <li className={task.completed? 'done' : '' } key={i}>{task.text}
+            <li key={i}> 
+            <span className={task.completed? 'done' : '' }>{task.text}</span>
             <input onClick={()=> toggleComplete(i)} type="checkbox"/>
-            <button>Delete</button>
+            <button onClick={()=> deleteItem(i)}>Delete</button>
             </li>
             ))}
         </ul>

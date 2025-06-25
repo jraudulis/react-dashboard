@@ -1,0 +1,131 @@
+
+.pomodoro-widget {
+  background: #1e1e2f; /* Dark background */
+  color: #f0f0f5; /* Light text */
+  max-width: 360px;
+  margin: 2rem auto;
+  padding: 2.5rem 3rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(30, 30, 47, 0.4);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  user-select: none;
+}
+
+.pomodoro-widget h2 {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+}
+
+.status {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #8f92a1;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.timer-display {
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.controls button {
+  background: #5865f2;
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  max-width: 90px;
+}
+
+.controls button:hover {
+  background: #4752c4;
+}
+
+.controls button:disabled {
+  background: #a3a9f7;
+  cursor: not-allowed;
+}
+
+/* Timer message styling */
+.timer-message {
+  max-width: 320px;
+  margin: 2rem auto;
+  padding: 2rem 2.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  user-select: none;
+}
+
+.timer-message h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #2a9d8f;
+  letter-spacing: 1px;
+}
+
+.timer-message p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.close-overlay-btn {
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.6rem 1.8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(231,111,81,0.3);
+}
+
+.close-overlay-btn:hover {
+  background-color: #d65a39;
+  box-shadow: 0 6px 12px rgba(214,90,57,0.5);
+}
+
+.close-overlay-btn:focus {
+  outline: 3px solid #264653;
+  outline-offset: 2px;
+}
+
+
+/* Responsive tweaks */
+@media (max-width: 400px) {
+  .pomodoro-widget {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+  .timer-display {
+    font-size: 4rem;
+  }
+  .controls button {
+    max-width: 70px;
+    padding: 0.6rem 1rem;
+  }
+}

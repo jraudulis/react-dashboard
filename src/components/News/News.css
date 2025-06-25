@@ -1,11 +1,14 @@
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-row: 2 / span 3;
+  grid-column: 1 / span 4;
   gap: 1.5rem;
   padding: 2rem;
   border-radius: 12px;
   background-color: #f5f5f5;
 }
+
 
 .wrapper > a {
   background-color: #fff;
@@ -26,7 +29,8 @@
 
 img {
   width: 100%;
-  height: 180px;
+  height: auto;
+  max-height: 180px;
   object-fit: cover;
 }
 
@@ -49,8 +53,20 @@ img {
   position: relative;
   z-index: 2;
 }
-  
+
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+/* Mobile / small screens: one column layout */
+@media (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-row: auto;   /* Let it flow naturally */
+    grid-column: auto;
+    padding: 1rem;
+  }
+
+
 }

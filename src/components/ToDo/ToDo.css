@@ -1,73 +1,111 @@
 .todo-widget {
   max-width: 400px;
-  background: #fff;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-family: Arial, sans-serif;
 }
 
 .todo-widget h2 {
-  margin-bottom: 1.2rem;
-  color: #222;
-  font-weight: 700;
-  font-size: 1.6rem;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .input {
-  width: 100%;
-  padding: 0.6rem 1rem;
+  width: calc(100% - 80px);
+  padding: 10px;
   font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
-  outline-offset: 2px;
-  transition: border-color 0.3s ease;
-  margin-bottom: 1rem;
-}
-
-.input:focus {
-  border-color: #4a90e2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 8px;
+  box-sizing: border-box;
 }
 
 .btn {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #4a90e2;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+  padding: 10px 16px;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #357ABD;
+.btn:disabled {
+  background-color: #a0c4ff;
+  cursor: not-allowed;
 }
 
 .list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding-left: 0;
+  margin-top: 20px;
 }
 
 .list li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 1rem;
-  color: #333;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
 }
 
 .list li:last-child {
   border-bottom: none;
 }
 
+.list li span {
+  flex-grow: 1;
+  margin-right: 10px;
+  word-break: break-word;
+}
+
 .done {
-    color: lightgray;
-    text-decoration: line-through;
+  text-decoration: line-through;
+  color: #888;
+}
+
+.list li input[type="checkbox"] {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.list li button {
+  background: #dc3545;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.list li button:hover {
+  background: #a71d2a;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .todo-widget {
+    padding: 15px;
+    max-width: 95%;
+  }
+  .input {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .btn {
+    width: 100%;
+    padding: 12px;
+  }
+  .list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .list li input[type="checkbox"], .list li button {
+    margin: 5px 0 0 0;
+  }
 }
