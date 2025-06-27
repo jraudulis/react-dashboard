@@ -11,15 +11,28 @@ const TimerWidget = () => {
 
     const startTimer = ()=> {
         if(intervalId === null) {
-            const id = setInterval(decrement, 1000);
+            const id = setInterval(()=> decrement(), 1000);
             setIntervalId(id);
-            clearInterval();
-        } 
-        console.log(time); 
-    }   
+        }  
+    }
+    
+    const pauseTimer = ()=> {
+     if(intervalId) {
+         clearInterval(intervalId);
+         setIntervalId(null);
+        }
+    }
 
-    const formatTime = ()=> {
-        setTime(prevTime => Math.floor(time / 60))
+    const resetTimer = ()=> {
+        clearInterval(intervalId);
+        setIntervalId(null);
+        setTime(1500);
+    }
+
+    const formatTime = (time)=> {
+        const mins = Math.floor(time / 60).toString().padStart(2, '0');
+        const secs = (time % 60).toString().padStart(2, '0');
+        return `${mins}:${secs}`;
     }
 
 
@@ -28,11 +41,11 @@ const TimerWidget = () => {
     <div className="pomodoro-widget">
         <h2>Pomodoro Timer</h2>
         <p className="status">Focus time</p>
-        <div className="timer-display">25:00</div>
+        <div className="timer-display">{formatTime(time)}</div>
          <div className="controls">
-          <button onClick={()=>startTimer(intervalId)} className="start-btn">Start</button>
-          <button className="pause-btn">Pause</button>
-          <button className="reset-btn">Reset</button>
+          <button onClick={startTimer} className="start-btn">Start</button>
+          <button onClick={pauseTimer} className="pause-btn">Pause</button>
+          <button onClick={resetTimer} className="reset-btn">Reset</button>
          </div>
     </div>
     )
