@@ -6,7 +6,7 @@ const NEWS_API_KEY = '4ee18cbebdb34b30ab8af59febc9160c';
 const url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${NEWS_API_KEY}`;
 
 
-function NewsWidget() {
+const NewsWidget = ()=> {
     const [data, setData] = useState(null);
 
     useEffect(()=> {

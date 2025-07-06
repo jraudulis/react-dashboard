@@ -1,0 +1,67 @@
+.weather-widget {
+  background: linear-gradient(135deg, #e0f7fa, #80deea);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.weather-widget h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #00796b;
+}
+
+.weather-input {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #b2ebf2;
+  width: 70%;
+  margin-right: 0.5rem;
+}
+
+.weather-btn {
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #00796b;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.weather-btn:hover {
+  background-color: #004d40;
+}
+
+.weather-info {
+  margin-top: 1.5rem;
+}
+
+.city-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #004d40;
+}
+
+.temp {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ff5722;
+  margin: 0.5rem 0;
+}
+
+.description {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.weather-icon {
+  width: 64px;
+  height: 64px;
+}
