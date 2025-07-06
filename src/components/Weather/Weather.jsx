@@ -18,9 +18,17 @@ const WeatherWidget = ()=> {
         const {lat, lon} = geoData[0];
 
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`)
-        const weatherDataResponse = await weatherResponse.json();
-        setWeatherData(weatherDataResponse);
-        console.log(weatherDataResponse);
+        const weatherInfo = await weatherResponse.json();
+
+        setWeatherData({
+            city: weatherInfo.name,
+            country: weatherInfo.sys.country,
+            temperature: Math.round(weatherInfo.main.temp),
+            description: weatherInfo.weather[0].description,
+            icon: weatherInfo.weather[0].icon
+
+        });
+        console.log(weatherInfo);
 
     }
 
@@ -49,17 +57,18 @@ const WeatherWidget = ()=> {
   />
   
   <button onClick={handleSearch} className="weather-btn">Search</button>
-
+{weatherData && (
   <div className="weather-info">
-    <h3 className="city-name"></h3>
-    <div className="temp">22°C</div>
-    <div className="description">Sunny</div>
-    <img 
+    <h3 className="city-name">{weatherData.city}, {weatherData.country}</h3>
+    <div className="temp">{weatherData.temperature}°C</div>
+     <img 
       className="weather-icon" 
-      src="https://openweathermap.org/img/wn/01d.png" 
+      src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
       alt="weather icon" 
     />
+    <div className="description">{weatherData.description}</div>
   </div>
+)}
 </div>
     )
 };
