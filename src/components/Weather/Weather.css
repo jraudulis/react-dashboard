@@ -65,3 +65,42 @@
   width: 64px;
   height: 64px;
 }
+
+.error {
+  position: relative;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.error.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+.error-error {
+  background-color: #f44336;
+}
+
+.error-success {
+  background-color: #4caf50;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+} 
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

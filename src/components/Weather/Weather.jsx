@@ -10,13 +10,54 @@ const OPENWEATHER_API_KEY = '08ff5bfd6bbd0c08f59cd1c0c38d242b';
 const WeatherWidget = ()=> {
 
     const [input, setInput] = useState('');
-    const [weatherData, setWeatherData] = useState(null)
+    const [lat, setLat] = useState(null);
+    const [lon, setLon] = useState(null);
+    const [weatherData, setWeatherData] = useState(null);
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+    if (error) {
+        const timer = setTimeout(() => {
+        setError('');
+        }, 5000); 
+        
+        return () => clearTimeout(timer);
+    }
+    }, [error]);
+
+    useEffect(()=> {
+        navigator.geolocation.getCurrentPosition((position)=>{
+            const {latitude, longitude} = position.coords;
+            setLat(latitude);
+            setLon(longitude);
+
+        })
+    }, [])
+
+    useEffect(()=> {
+        if(lat && lon){
+            fetchWeatherByCoords(lat, lon)
+        }
+    }, [lat, lon])
 
     const fetchWeatherData = async (input)=>{
+     try{
        const geoResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${input}&appid=${OPENWEATHER_API_KEY}`)
         const geoData = await geoResponse.json();
-        const {lat, lon} = geoData[0];
 
+        if(geoData.length === 0) {
+            setError('City not found. Please enter valid city')
+            return;
+        }
+
+        const {lat, lon} = geoData[0];
+        await fetchWeatherByCoords(lat, lon);
+        }catch(err) {setError('Error occured while fetching data',err.message)}
+
+    }
+
+    const fetchWeatherByCoords = async (lat, lon) => {
+       try{
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OPENWEATHER_API_KEY}&units=metric`)
         const weatherInfo = await weatherResponse.json();
 
@@ -29,7 +70,7 @@ const WeatherWidget = ()=> {
 
         });
         console.log(weatherInfo);
-
+        }catch(err){setError('Error occured while fetching data',err.message)}
     }
 
 
@@ -39,6 +80,11 @@ const WeatherWidget = ()=> {
     }
 
     const handleSearch = ()=> {
+        if(!input.trim()) {
+            setError('Enter city name');
+            return;
+        }
+        setError('');
         fetchWeatherData(input);
         setInput('');
     }
@@ -55,7 +101,8 @@ const WeatherWidget = ()=> {
     value={input}
     onChange={returnInputValue}
   />
-  
+  {error && <div className="error show error-error fade-in">{error}</div>}
+
   <button onClick={handleSearch} className="weather-btn">Search</button>
 {weatherData && (
   <div className="weather-info">
