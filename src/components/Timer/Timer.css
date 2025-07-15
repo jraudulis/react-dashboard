@@ -2,11 +2,6 @@
 .pomodoro-widget {
   background: #1e1e2f; /* Dark background */
   color: #f0f0f5; /* Light text */
-  max-width: 360px;
-  margin: 2rem auto;
-  padding: 2.5rem 3rem;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(30, 30, 47, 0.4);
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   user-select: none;

@@ -19,7 +19,7 @@ const NewsWidget = ()=> {
     if(!data) return <div className='loader'></div>;
 
         return (
-        <div className='wrapper'>
+        <div className='news-widget'>
             <h1>Latest News</h1>
             {data.articles.slice(0, 5).map((item, i) =>(
                 <a href={item.url} key={i} target="_blank" rel="noopener noreferrer">

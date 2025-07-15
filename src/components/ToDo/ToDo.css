@@ -1,11 +1,6 @@
 .todo-widget {
-  max-width: 450px;
-  min-height: 357px;
   margin: 2rem auto;
-  padding: 20px;
   background: #f9f9f9;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(30, 30, 47, 0.4);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -105,11 +100,10 @@
     width: 100%;
     padding: 12px;
   }
-  .list li {
-    flex-direction: column;
+  .list {
     align-items: flex-start;
   }
-  .list li input[type="checkbox"], .list li button {
-    margin: 5px 0 0 0;
+  .list input[type="checkbox"] {
+    margin-right: 20px;
   }
 }

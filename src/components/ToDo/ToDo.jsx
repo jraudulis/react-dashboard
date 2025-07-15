@@ -35,7 +35,7 @@ const ToDoWidget = () => {
 
   return (
     <>
-      <div className="todo-widget">
+      <div className="widget todo-widget">
         <h2>Daily Tasks</h2>
         <input onKeyDown={handleKeyPress} onChange={onInputChange} value={input} className="input" type="text" placeholder="Enter item" />
         <button disabled={!input.trim()} onClick={addItems} aria-label="add task" className="btn">Enter</button>

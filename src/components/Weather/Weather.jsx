@@ -73,6 +73,8 @@ const WeatherWidget = ()=> {
         }catch(err){setError('Error occured while fetching data',err.message)}
     }
 
+    if(!weatherData) return <div className='loader'></div>;
+
 
 
     const returnInputValue = (event)=>{
@@ -90,9 +92,9 @@ const WeatherWidget = ()=> {
     }
 
     return (
-        <div className="weather-widget">
+        <div className="widget weather-widget">
   <h2>Weather</h2>
-  
+  <div className="input-wrapper">
   <input 
     className="weather-input" 
     type="text" 
@@ -101,19 +103,20 @@ const WeatherWidget = ()=> {
     value={input}
     onChange={returnInputValue}
   />
+  <button onClick={handleSearch} className="weather-btn">Search</button>
+  </div>
   {error && <div className="error show error-error fade-in">{error}</div>}
 
-  <button onClick={handleSearch} className="weather-btn">Search</button>
 {weatherData && (
   <div className="weather-info">
-    <h3 className="city-name">{weatherData.city}, {weatherData.country}</h3>
-    <div className="temp">{weatherData.temperature}°C</div>
-     <img 
+    <img 
       className="weather-icon" 
       src={`https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`}
       alt="weather icon" 
     />
     <div className="description">{weatherData.description}</div>
+    <div className="temp">{weatherData.temperature}°C</div>
+    <h3 className="city-name">{weatherData.city}, {weatherData.country}</h3>
   </div>
 )}
 </div>

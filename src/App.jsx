@@ -9,10 +9,10 @@ function App() {
 
   return (
     <>
-      <NewsWidget />
-      <ToDoWidget />
-      <TimerWidget />
       <WeatherWidget />
+      <TimerWidget />
+      <ToDoWidget />
+      <NewsWidget />
     </>
   )
 }

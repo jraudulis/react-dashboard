@@ -1,4 +1,4 @@
-.wrapper {
+.news-widget {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-row: 2 / span 3;
@@ -11,7 +11,7 @@
 }
 
 
-.wrapper > a {
+.news-widget > a {
   background-color: #fff;
   border-radius: 16px;
   overflow: hidden;
@@ -22,7 +22,7 @@
   color: inherit;
 }
 
-.wrapper > a:hover {
+.news-widget > a:hover {
   outline: 2px solid #0077ff;
   outline-offset: 2px;
   transform: translateY(-4px);

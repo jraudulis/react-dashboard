@@ -38,7 +38,7 @@ const TimerWidget = () => {
 
 
     return (
-    <div className="pomodoro-widget">
+    <div className="widget pomodoro-widget">
         <h2>Pomodoro Timer</h2>
         <p className="status">Focus time</p>
         <div className="timer-display">{formatTime(time)}</div>
