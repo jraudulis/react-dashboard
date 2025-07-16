@@ -16,6 +16,17 @@
   box-shadow: 0 8px 24px rgba(30, 30, 47, 0.4);
 }
 
+/* Tavlet styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  #root {
+    display: block;
+  }
+
+  .widget {
+    max-width: 100%;
+  }
+}
+
 /* Mobile styles */
 @media (max-width: 600px) {
   #root {

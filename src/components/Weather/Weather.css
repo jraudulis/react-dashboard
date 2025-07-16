@@ -29,6 +29,7 @@
 
 .input-wrapper{
   display: flex;
+  justify-content: center;
 }
 
 .weather-input {
